@@ -103,6 +103,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="Odk-3P-5zA" id="FM5-XQ-Thl"/>
                         <outlet property="usernameTextField" destination="PHh-vR-6me" id="yk1-ta-1Jy"/>
+                        <segue destination="JGv-Hf-TQn" kind="presentation" id="T1R-W3-LRt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
