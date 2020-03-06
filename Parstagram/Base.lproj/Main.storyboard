@@ -120,11 +120,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1Ws-GG-rEq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="i29-X4-AOn"/>
+                    <navigationItem key="navigationItem" id="i29-X4-AOn">
+                        <barButtonItem key="rightBarButtonItem" title="Capture" image="insta_camera_btn" id="2PF-pj-2Bp">
+                            <connections>
+                                <segue destination="omR-q8-mEz" kind="presentation" id="3iG-eM-ppG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjC-mH-3q7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1698" y="133"/>
+        </scene>
+        <!--Camara View Controller-->
+        <scene sceneID="Uer-k7-B8U">
+            <objects>
+                <viewController id="omR-q8-mEz" customClass="CamaraViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T5W-rh-gua">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="vQV-XD-jXv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAa-ks-frh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2471" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="30U-Sp-t98">
@@ -146,6 +167,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="insta_camera_btn" width="25" height="25"/>
         <image name="instagram_logo" width="255" height="108"/>
     </resources>
 </document>
