@@ -54,6 +54,9 @@
                                     <constraint firstAttribute="width" constant="85" id="6Cz-eI-MnU"/>
                                 </constraints>
                                 <state key="normal" title="Sign in"/>
+                                <connections>
+                                    <action selector="signInEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="250-tC-uFO"/>
+                                </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="instagram_logo" translatesAutoresizingMaskIntoConstraints="NO" id="a9c-EJ-iN2">
                                 <rect key="frame" x="60" y="70" width="255" height="108"/>
@@ -67,6 +70,9 @@
                                     <constraint firstAttribute="width" constant="85" id="ESr-hC-Xr4"/>
                                 </constraints>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zf4-oQ-0sA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,6 +94,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="Odk-3P-5zA" id="FM5-XQ-Thl"/>
+                        <outlet property="usernameTextField" destination="PHh-vR-6me" id="yk1-ta-1Jy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
