@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4j-9f-WqN">
-                                <rect key="frame" x="148.5" y="188" width="78.5" height="21"/>
+                                <rect key="frame" x="60" y="188" width="255" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEF-so-YIL">
-                                <rect key="frame" x="150.5" y="264" width="74" height="21"/>
+                                <rect key="frame" x="60" y="264" width="255" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -53,7 +53,10 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="6Cz-eI-MnU"/>
                                 </constraints>
-                                <state key="normal" title="Sign in"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="signInEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="250-tC-uFO"/>
                                 </connections>
@@ -69,6 +72,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="ESr-hC-Xr4"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="signUpEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zf4-oQ-0sA"/>
@@ -80,10 +84,12 @@
                             <constraint firstItem="a9c-EJ-iN2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Sn-FO-4GN"/>
                             <constraint firstItem="OiY-di-3bj" firstAttribute="trailing" secondItem="Odk-3P-5zA" secondAttribute="trailing" id="4kL-tg-HIe"/>
                             <constraint firstItem="Odk-3P-5zA" firstAttribute="top" secondItem="uEF-so-YIL" secondAttribute="bottom" constant="10" id="5Oq-Zl-NIR"/>
+                            <constraint firstItem="uEF-so-YIL" firstAttribute="leading" secondItem="a9c-EJ-iN2" secondAttribute="leading" id="BbP-WD-Agh"/>
                             <constraint firstItem="k4j-9f-WqN" firstAttribute="top" secondItem="a9c-EJ-iN2" secondAttribute="bottom" constant="10" id="DXV-bg-7G1"/>
                             <constraint firstItem="xa2-h5-f8e" firstAttribute="top" secondItem="Odk-3P-5zA" secondAttribute="bottom" constant="20" id="I4f-nQ-RjO"/>
                             <constraint firstItem="xa2-h5-f8e" firstAttribute="leading" secondItem="Odk-3P-5zA" secondAttribute="leading" id="IK7-fV-rM5"/>
                             <constraint firstItem="a9c-EJ-iN2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="SHv-Wj-0MT"/>
+                            <constraint firstItem="k4j-9f-WqN" firstAttribute="leading" secondItem="a9c-EJ-iN2" secondAttribute="leading" id="YY6-0M-9tj"/>
                             <constraint firstItem="OiY-di-3bj" firstAttribute="top" secondItem="Odk-3P-5zA" secondAttribute="bottom" constant="20" id="b2o-gB-x4d"/>
                             <constraint firstItem="uEF-so-YIL" firstAttribute="top" secondItem="PHh-vR-6me" secondAttribute="bottom" constant="15" id="dzk-5F-zGb"/>
                             <constraint firstItem="Odk-3P-5zA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eDl-rT-jEc"/>
