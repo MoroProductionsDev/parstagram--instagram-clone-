@@ -20,20 +20,27 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signInEvent(_ sender: Any) {
+        PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text! , block: { (user, error) in
+            if user != nil {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            } else {
+                print("Error \(String(describing: error?.localizedDescription))")
+            }
+        })
+    }
+    
+    @IBAction func signUpEvent(_ sender: Any) {
         let user = PFUser()
         user.username = usernameTextField.text
         user.password = passwordTextField.text
         
         user.signUpInBackground {(success, error) in
             if success {
-                performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
                 print("Error \(String(describing: error?.localizedDescription))")
             }
         }
-    }
-    
-    @IBAction func signUpEvent(_ sender: Any) {
     }
     /*
     // MARK: - Navigation
