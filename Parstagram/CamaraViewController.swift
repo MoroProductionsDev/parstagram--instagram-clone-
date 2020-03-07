@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class CamaraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
@@ -38,6 +39,20 @@ class CamaraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // executes the picker (camera / photo gallery)
         present(picker, animated: true, completion: nil)
+    }
+    
+    // Get image dictionary
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        let size = CGSize(width: 300, height: 300)
+        // scall it down
+        let scaledImage = image.af_imageScaled(to: size)
+        
+        // insert that scall image inside this imageview
+        imageView.image = scaledImage
+        
+        // dismiss the camera view
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
