@@ -140,15 +140,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="n14-ky-Okz">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="n14-ky-Okz">
                                 <rect key="frame" x="16" y="40" width="343" height="375"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="BcF-rw-iTF" appends="YES" id="T1j-Gv-VrC"/>
                                 </connections>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVv-vf-Lp6">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVv-vf-Lp6">
                                 <rect key="frame" x="16" y="475" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="9jH-i5-5sN"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -163,9 +166,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="n14-ky-Okz" firstAttribute="leading" secondItem="vQV-XD-jXv" secondAttribute="leading" constant="16" id="7wN-fS-pMb"/>
+                            <constraint firstItem="NVv-vf-Lp6" firstAttribute="leading" secondItem="n14-ky-Okz" secondAttribute="leading" id="O3X-ay-v1r"/>
                             <constraint firstItem="LAb-3Q-g0H" firstAttribute="top" secondItem="NVv-vf-Lp6" secondAttribute="bottom" constant="30" id="Z4E-Gl-5uZ"/>
                             <constraint firstItem="LAb-3Q-g0H" firstAttribute="centerX" secondItem="T5W-rh-gua" secondAttribute="centerX" id="bsD-tc-oCD"/>
                             <constraint firstItem="n14-ky-Okz" firstAttribute="top" secondItem="vQV-XD-jXv" secondAttribute="top" constant="20" id="dkb-0z-unI"/>
+                            <constraint firstItem="vQV-XD-jXv" firstAttribute="trailing" secondItem="n14-ky-Okz" secondAttribute="trailing" constant="16" id="nRx-Vr-h4L"/>
                             <constraint firstItem="NVv-vf-Lp6" firstAttribute="top" secondItem="n14-ky-Okz" secondAttribute="bottom" constant="60" id="wzX-TF-vCs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vQV-XD-jXv"/>
