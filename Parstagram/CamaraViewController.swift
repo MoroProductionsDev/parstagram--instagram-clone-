@@ -21,13 +21,24 @@ class CamaraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func submitEvent(_ sender: Any) {
-        let pet = PFObject(className: "Pets") // like a dictionary
+        let post = PFObject(className: "Pets") // like a dictionary of [Parse]
+        // save it separate table for the photos
+        let imageData = imageView.image!.pngData()
+        let file = PFFileObject(data: imageData!)
         
-        pet["name"] = "Spencer"
-        pet["weight"] = 50
-        pet["owner"] = PFUser.current()!
+        post["caption"] = commentTextField.text
+        post["author"] = PFUser.current()!
+        post["image"] =  file        // this column will have the url for the image
         
-         
+        // save the dictionary[{Parse]
+        post.saveInBackground{(success, error) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+                print("saved")
+            } else {
+                print("error! (saving)")
+            }
+        }
     }
     
     @IBAction func cameraEvent(_ sender: Any) {
