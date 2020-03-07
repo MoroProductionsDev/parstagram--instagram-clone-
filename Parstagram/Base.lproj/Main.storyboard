@@ -122,7 +122,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="435" id="Vlx-9A-zJk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="435" id="Vlx-9A-zJk" customClass="PostCell" customModule="Parstagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="435"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vlx-9A-zJk" id="lVx-YT-5h1">
@@ -161,6 +161,11 @@
                                                 <constraint firstItem="vDk-1v-ygw" firstAttribute="top" secondItem="7KI-1i-73R" secondAttribute="bottom" constant="28" id="rRa-Ac-DHw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="hng-zq-YQi" id="z0o-DV-yg8"/>
+                                            <outlet property="photoImageView" destination="7KI-1i-73R" id="v42-tK-Axa"/>
+                                            <outlet property="usernameLabel" destination="vDk-1v-ygw" id="9KN-Sp-t1A"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -181,6 +186,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ULT-ze-l6D" id="XDo-iJ-jnx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjC-mH-3q7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
