@@ -140,23 +140,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="n14-ky-Okz">
-                                <rect key="frame" x="16" y="70" width="343" height="278"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="n14-ky-Okz">
+                                <rect key="frame" x="16" y="40" width="343" height="375"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BcF-rw-iTF" appends="YES" id="T1j-Gv-VrC"/>
+                                </connections>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVv-vf-Lp6">
-                                <rect key="frame" x="16" y="402" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVv-vf-Lp6">
+                                <rect key="frame" x="16" y="475" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAb-3Q-g0H">
+                                <rect key="frame" x="163" y="535" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitEvent:" destination="omR-q8-mEz" eventType="touchUpInside" id="F5z-BM-VZg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LAb-3Q-g0H" firstAttribute="top" secondItem="NVv-vf-Lp6" secondAttribute="bottom" constant="30" id="Z4E-Gl-5uZ"/>
+                            <constraint firstItem="LAb-3Q-g0H" firstAttribute="centerX" secondItem="T5W-rh-gua" secondAttribute="centerX" id="bsD-tc-oCD"/>
+                            <constraint firstItem="n14-ky-Okz" firstAttribute="top" secondItem="vQV-XD-jXv" secondAttribute="top" constant="20" id="dkb-0z-unI"/>
+                            <constraint firstItem="NVv-vf-Lp6" firstAttribute="top" secondItem="n14-ky-Okz" secondAttribute="bottom" constant="60" id="wzX-TF-vCs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vQV-XD-jXv"/>
                     </view>
+                    <connections>
+                        <outlet property="commentTextField" destination="NVv-vf-Lp6" id="NR7-Z8-0on"/>
+                        <outlet property="imageView" destination="n14-ky-Okz" id="cQ9-0H-ISc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAa-ks-frh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BcF-rw-iTF">
+                    <connections>
+                        <action selector="cameraEvent:" destination="omR-q8-mEz" id="BFB-lC-YFC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2469.5999999999999" y="132.68365817091455"/>
         </scene>

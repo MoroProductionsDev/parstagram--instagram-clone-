@@ -8,15 +8,23 @@
 
 import UIKit
 
-class CamaraViewController: UIViewController {
-
+class CamaraViewController: UIViewController, UIImagePickerControllerDelegate {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var commentTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func submitEvent(_ sender: Any) {
+        
+    }
+    
+    @IBAction func cameraEvent(_ sender: Any) {
+        
+    }
     /*
     // MARK: - Navigation
 
