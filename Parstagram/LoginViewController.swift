@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         user.username = usernameTextField.text
         user.password = passwordTextField.text
         
-        user.signUpInBackground {(success, error) in
+        user.signUpInBackground { (success, error) in
             if success {
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
