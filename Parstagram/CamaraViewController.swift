@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 import AlamofireImage
 
 class CamaraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -20,7 +21,13 @@ class CamaraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func submitEvent(_ sender: Any) {
+        let pet = PFObject(className: "Pets") // like a dictionary
         
+        pet["name"] = "Spencer"
+        pet["weight"] = 50
+        pet["owner"] = PFUser.current()!
+        
+         
     }
     
     @IBAction func cameraEvent(_ sender: Any) {
