@@ -21,7 +21,7 @@ class CamaraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func submitEvent(_ sender: Any) {
-        let post = PFObject(className: "Pets") // like a dictionary of [Parse]
+        let post = PFObject(className: "Posts") // like a dictionary of [Parse]
         // save it separate table for the photos
         let imageData = imageView.image!.pngData()
         let file = PFFileObject(data: imageData!)
