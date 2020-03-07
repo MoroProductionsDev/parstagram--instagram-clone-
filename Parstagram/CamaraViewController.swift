@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CamaraViewController: UIViewController, UIImagePickerControllerDelegate {
+class CamaraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var commentTextField: UITextField!
     
@@ -23,7 +23,21 @@ class CamaraViewController: UIViewController, UIImagePickerControllerDelegate {
     }
     
     @IBAction func cameraEvent(_ sender: Any) {
+        let picker = UIImagePickerController()
+        // when the user have taken a photo, notify picker.delegate about that photo.
+        picker.delegate = self
+        // present a second screen to allow the user to edit the image if he wishes to.
+        picker.allowsEditing = true
         
+        // If the camera resource is available
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera         // use the camere
+        } else {
+            picker.sourceType = .photoLibrary   // use photo gallery
+        }
+        
+        // executes the picker (camera / photo gallery)
+        present(picker, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
