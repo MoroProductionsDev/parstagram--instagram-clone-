@@ -74,5 +74,15 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func logoutEvent(_ sender: Any) {
+        PFUser.logOut()
+        
+        let main = UIStoryboard(name : "Main", bundle: nil)
+        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        delegate.window?.rootViewController = loginViewController
+    }
+    
 }
