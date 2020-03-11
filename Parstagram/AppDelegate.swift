@@ -27,6 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        // Check for user authentication state to either send them to the login page
+        // or the feed page
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
+            window?.rootViewController = feedNavigationController
+        }
+        
         return true
     }
 
