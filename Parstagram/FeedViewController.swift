@@ -16,6 +16,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     let commentBar = MessageInputBar();
     var isCommentBarVisible = false
     var posts = [PFObject]()
+    var selectedPost : PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,26 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        let comment = PFObject(className: "Comments")
+        
         // Create the comment
+        comment["text"] = text
+        comment["post"] = selectedPost
+        comment["author"] = PFUser.current()
+
+        // add comment to "comments" array
+        selectedPost.add(comment, forKey: "comments")
+
+        selectedPost.saveInBackground { (success, error) in
+            if success {
+                print("Comment saved")
+            } else {
+                print("Error saving comment")
+            }
+        }
+        // reload the table view data to display the new comment
+        tableView.reloadData()
+        
         
         // Clear dismmiss the  input bar
         commentBar.inputTextView.text = nil
@@ -134,22 +154,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             becomeFirstResponder()
             commentBar.inputTextView.becomeFirstResponder()
+            
+            // asssign the selected post
+            selectedPost = singlePost
         }
-        
-//        comment["text"] = "Random comment"
-//        comment["post"] = singlePost
-//        comment["author"] = PFUser.current()
-//
-//        // add comment to "comments" array
-//        post.add(comment, forKey: "comments")
-//
-//        post.saveInBackground { (success, error) in
-//            if success {
-//                print("Comment saved")
-//            } else {
-//                print("Error saving comment")
-//            }
-//        }
     }
     
 
