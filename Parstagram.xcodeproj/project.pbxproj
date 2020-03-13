@@ -13,6 +13,7 @@
 		CB64706F241456A000881F22 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB64706E241456A000881F22 /* PostCell.swift */; };
 		CB76065A2411CD32003EAFF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7606592411CD32003EAFF7 /* LoginViewController.swift */; };
 		CB76065C2411CD41003EAFF7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB76065B2411CD41003EAFF7 /* FeedViewController.swift */; };
+		CB890A85241B019800AD4965 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB890A84241B019800AD4965 /* CommentCell.swift */; };
 		CBCAD8322411C5BD005F53C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCAD8312411C5BD005F53C6 /* AppDelegate.swift */; };
 		CBCAD8372411C5BD005F53C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD8352411C5BD005F53C6 /* Main.storyboard */; };
 		CBCAD8392411C5BF005F53C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBCAD8382411C5BF005F53C6 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		CB64706E241456A000881F22 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		CB7606592411CD32003EAFF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CB76065B2411CD41003EAFF7 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		CB890A84241B019800AD4965 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		CBCAD82E2411C5BD005F53C6 /* Parstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCAD8312411C5BD005F53C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBCAD8362411C5BD005F53C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				CB76065B2411CD41003EAFF7 /* FeedViewController.swift */,
 				CB3FB61924120A0800C7BC53 /* CamaraViewController.swift */,
 				CB64706E241456A000881F22 /* PostCell.swift */,
+				CB890A84241B019800AD4965 /* CommentCell.swift */,
 			);
 			path = Parstagram;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				CB76065C2411CD41003EAFF7 /* FeedViewController.swift in Sources */,
 				CBCAD8322411C5BD005F53C6 /* AppDelegate.swift in Sources */,
 				CB64706F241456A000881F22 /* PostCell.swift in Sources */,
+				CB890A85241B019800AD4965 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
