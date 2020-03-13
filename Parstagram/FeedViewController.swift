@@ -9,11 +9,11 @@
 import UIKit
 import Parse
 import AlamofireImage
+import MessageInputBar
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     @IBOutlet weak var tableView: UITableView!
-    
+    let commentBar = MessageInputBar();
     var posts = [PFObject]()
     
     override func viewDidLoad() {
@@ -42,6 +42,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
+    
+    // MessageInputBar
+    override var inputAccessoryView: UIView? {
+        return commentBar
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    //--
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return posts.count
