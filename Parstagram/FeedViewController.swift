@@ -31,7 +31,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Since author is a pointer to another object, it has to fetch the data
         // to disply it
-        query.includeKey("author")
+        query.includeKeys(["author", "comments", "comments.author"])
         query.limit = 20
         
         // query sequence
@@ -56,20 +56,34 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
-        let singlePost = posts[indexPath.row]
-        let user = singlePost["author"] as! PFUser
+        let singlePost = posts[indexPath.section]
+        let comments = (singlePost["comments"] as? [PFObject]) ?? []
         
-        // AlamofireImage
-        let imageFile = singlePost["image"] as! PFFileObject
-        let urlString =  imageFile.url!
-        let url = URL(string: urlString)!
+
         
-        cell.usernameLabel.text = user.username
-        cell.captionLabel.text = (singlePost["caption"] as! String)
-        cell.photoImageView.af_setImage(withURL: url)
-        
-        return cell
+        if  indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
+            let user = singlePost["author"] as! PFUser
+            
+            // AlamofireImage
+            let imageFile = singlePost["image"] as! PFFileObject
+            let urlString =  imageFile.url!
+            let url = URL(string: urlString)!
+            
+            cell.usernameLabel.text = user.username
+            cell.captionLabel.text = (singlePost["caption"] as! String)
+            cell.photoImageView.af_setImage(withURL: url)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
+            let singleComment = comments[indexPath.row - 1]
+            let user = singleComment["author"] as! PFUser
+            
+            cell.nameLabel.text = user.username
+            cell.commentLabel.text = singleComment["text"] as? String
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

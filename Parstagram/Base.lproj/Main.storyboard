@@ -198,8 +198,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentLabel" destination="Xpc-2h-IlP" id="y7x-0n-NFm"/>
-                                            <outlet property="nameLabel" destination="Xpc-2h-IlP" id="Rar-Oi-Wri"/>
+                                            <outlet property="commentLabel" destination="dYC-gf-aIS" id="lVU-pz-v1n"/>
+                                            <outlet property="nameLabel" destination="LYv-nb-lLf" id="dgl-SD-5KI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
