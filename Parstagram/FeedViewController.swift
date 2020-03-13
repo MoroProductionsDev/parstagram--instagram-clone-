@@ -14,6 +14,7 @@ import MessageInputBar
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     let commentBar = MessageInputBar();
+    var isCommentBarVisible = false
     var posts = [PFObject]()
     
     override func viewDidLoad() {
@@ -21,6 +22,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // dismiss keyboard by dragging down with the table view
+        tableView.keyboardDismissMode = .interactive
 
         // Do any additional setup after loading the view.
     }
@@ -49,7 +53,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override var canBecomeFirstResponder: Bool {
-        return true
+        return isCommentBarVisible
     }
     //--
     
@@ -61,7 +65,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let singlePost = posts[section]
         let comments = singlePost["comments"] as? [PFObject] ?? []
         
-        return comments.count + 1
+        return comments.count + 2
         
     }
     
@@ -84,13 +88,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.captionLabel.text = (singlePost["caption"] as! String)
             cell.photoImageView.af_setImage(withURL: url)
             return cell
-        } else {
+        } else if indexPath.row <= comments.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
             let singleComment = comments[indexPath.row - 1]
             let user = singleComment["author"] as! PFUser
             
             cell.nameLabel.text = user.username
             cell.commentLabel.text = singleComment["text"] as? String
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddCommentCell")!
             
             return cell
         }
