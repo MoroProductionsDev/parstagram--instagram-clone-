@@ -64,7 +64,7 @@ class CamaraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let image = info[.editedImage] as! UIImage
         let size = CGSize(width: 300, height: 300)
         // scall it down
-        let scaledImage = image.af_imageScaled(to: size)
+        let scaledImage = image.af_imageAspectScaled(toFill: size)
         
         // insert that scall image inside this imageview
         imageView.image = scaledImage
