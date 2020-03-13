@@ -11,7 +11,7 @@ import Parse
 import AlamofireImage
 import MessageInputBar
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MessageInputBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     let commentBar = MessageInputBar();
     var isCommentBarVisible = false
@@ -19,14 +19,27 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let notifCenter = NotificationCenter.default
+        
+        commentBar.inputTextView.placeholder = "Post a comment..."
+        commentBar.sendButton.title = "Post"
+        commentBar.delegate = self
         
         tableView.delegate = self
         tableView.dataSource = self
         
         // dismiss keyboard by dragging down with the table view
         tableView.keyboardDismissMode = .interactive
-
+        
+        // Notify with notification with a event happends
+        notifCenter.addObserver(self, selector: #selector(HideKeyBoard(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func HideKeyBoard(note: Notification) {
+        commentBar.inputTextView.text = nil
+        isCommentBarVisible = false
+        becomeFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +58,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData() // reload the data in the tableview
             }
         }
+    }
+    
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        // Create the comment
+        
+        // Clear dismmiss the  input bar
+        commentBar.inputTextView.text = nil
+        isCommentBarVisible = false
+        becomeFirstResponder()
+        commentBar.inputTextView.resignFirstResponder()
     }
     
     // MessageInputBar
@@ -72,8 +95,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let singlePost = posts[indexPath.section]
         let comments = (singlePost["comments"] as? [PFObject]) ?? []
-        
-
         
         if  indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
@@ -105,23 +126,30 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = posts[indexPath.row]
-        let comment = PFObject(className: "Comments")
+        let singlePost = posts[indexPath.section]
+        let comments = (singlePost["comments"] as? [PFObject]) ?? []
         
-        comment["text"] = "Random comment"
-        comment["post"] = post
-        comment["author"] = PFUser.current()
-        
-        // add comment to "comments" array
-        post.add(comment, forKey: "comments")
-        
-        post.saveInBackground { (success, error) in
-            if success {
-                print("Comment saved")
-            } else {
-                print("Error saving comment")
-            }
+        if indexPath.row == comments.count + 1 {
+            isCommentBarVisible = true
+            
+            becomeFirstResponder()
+            commentBar.inputTextView.becomeFirstResponder()
         }
+        
+//        comment["text"] = "Random comment"
+//        comment["post"] = singlePost
+//        comment["author"] = PFUser.current()
+//
+//        // add comment to "comments" array
+//        post.add(comment, forKey: "comments")
+//
+//        post.saveInBackground { (success, error) in
+//            if success {
+//                print("Comment saved")
+//            } else {
+//                print("Error saving comment")
+//            }
+//        }
     }
     
 
